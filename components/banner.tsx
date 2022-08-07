@@ -20,20 +20,20 @@ function Banner({ netflixOriginals }: Props) {
     return (
         <div className="flex flex-col space-y-2 py-16 md:space-y-4
         lg:h-[65vh] lg:justify-end lg:pb-12">
-            <div className="absolute top-0 left-0 h-[95vh] w-screen">
+            <div className="absolute -z-10 top-0 left-0 h-[95vh] w-screen">
                 <Image src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
                 layout="fill" objectFit="cover"/>
             </div>
 
-            <h1 className="relative text-2xl lg:text-7xl md:text-4xl">
+            <h1 className="text-2xl lg:text-7xl md:text-4xl">
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>
-            <p className="relative max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg 
+            <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg 
             lg:max-w-screen-2xl lg:text-2xl">
                 {movie?.overview}
             </p>
 
-            <div className="relative flex space-x-3">
+            <div className="flex space-x-3">
                 <button className="bannerButton bg-white text-black">
                     <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />Play
                 </button>
