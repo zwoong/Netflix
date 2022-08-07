@@ -23,7 +23,7 @@ function Header() {
     }, [])
 
     return (
-        <header className={`${isSrolled && 'bg-red-500'}`}>
+        <header className={`${isSrolled && 'bg-[#141414]'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img
                     src="https://rb.gy/ulxxee"
