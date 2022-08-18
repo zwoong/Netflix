@@ -1,10 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
 import Banner from '../components/banner'
 import requests from '../utils/request'
 import { Movie } from '../typings'
 import Row from '../components/Row'
+import useAuth from '../hooks/useAuth'
+import { modalState } from '../atoms/modalAtom'
+import { useRecoilValue } from 'recoil'
+import Modal from '../components/Modal'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -27,7 +30,12 @@ const Home = ({
   topRated,
   trendingNow
 }: Props) => {
+  const { logout, loading } = useAuth()
+  const showModal = useRecoilValue(modalState)
+  // useRecoilValue : atom 혹은 selector의 값을 읽고 쓰려고 할 때 사용한다.
 
+  if (loading) return 'Loading'
+  
   return (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
@@ -49,7 +57,7 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {/* Modal */}
+      {showModal && <Modal />}
     </div>
   )
 }

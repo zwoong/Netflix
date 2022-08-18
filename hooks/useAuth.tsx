@@ -101,6 +101,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     }), [user, loading])
 
     return (
+        // provider는 정의한 context를 하위 컴포넌트에게 전달하는 역할
         <AuthContext.Provider value={memoedValue}>
             {!initialLoading && children}
         </AuthContext.Provider>
